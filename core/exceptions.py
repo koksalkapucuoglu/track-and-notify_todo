@@ -39,6 +39,16 @@ class InvalidResetPasswordTokenException(ExceptionHandler):
     default_detail = 'Invalid reset password token'
 
 
+class ExistStatusWithThisOrderException(ExceptionHandler):
+    default_code = 1005
+    default_detail = 'A status with this order already exists'
+
+
+class StatusDoesNotExistException(ExceptionHandler):
+    default_code = 1006
+    default_detail = 'Invalid todo status'
+
+
 def prettier_exc(errors=None, message_text=None):
     message = {
         'detail': []

@@ -7,6 +7,8 @@ from rest_framework import permissions, routers
 
 from user.urls import router as user_router
 from user import urls as user_url
+from todo.urls import router as todo_router
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -22,6 +24,7 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 
 router.registry.extend(user_router.registry)
+router.registry.extend(todo_router.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
