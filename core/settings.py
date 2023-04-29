@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'drf_yasg',
+    'django_celery_beat',
 
     # internal apps
     'user',
@@ -152,6 +153,13 @@ SWAGGER_SETTINGS = {
         },
     },
 }
+
+#CELERY_BROKER_URL = "redis://redis:6379"
+CELERY_BROKER_URL = 'pyamqp://admin:admin@host.docker.internal//'
+CELERY_RESULT_BACKEND = "redis://redis:6379"
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True

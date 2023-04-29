@@ -1,7 +1,8 @@
-from django.urls import path, include
 from rest_framework import routers
-from .views import TodoViewSet, StatusViewSet
+
+from todo.views import TodoViewSet, StatusViewSet, NotifyViewSet
 
 router = routers.DefaultRouter()
 router.register(r'todos', TodoViewSet, basename='todos')
 router.register(r'statuses', StatusViewSet, basename='statuses')
+router.register(r'notifies', NotifyViewSet, basename='notifies')

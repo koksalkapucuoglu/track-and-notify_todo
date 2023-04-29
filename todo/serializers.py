@@ -3,8 +3,9 @@ from rest_framework import serializers
 from core.exceptions import (
     ExistStatusWithThisOrderException, StatusDoesNotExistException
 )
-from todo.models import Todo, Status
+from todo.models import Todo, Status, Notify
 from user.serializers import UserSerializer
+
 
 class StatusSerializer(serializers.ModelSerializer):
     class Meta:
@@ -62,3 +63,33 @@ class TodoSerializer(serializers.ModelSerializer):
 class TodoGetSerializer(TodoSerializer):
     status = StatusSerializer(read_only=True)
     user = UserSerializer(read_only=True)
+
+
+class NotifySerializer(serializers.ModelSerializer):
+    status = serializers.IntegerField(write_only=True, required=True)
+
+    class Meta:
+        model = Notify
+        fields = '__all__'
+        read_only_fields = ('id', 'user', 'task')
+
+    def validate_status(self, value):
+        try:
+            status = Status.objects.get(
+                id=value, user=self.context['request'].user
+            )
+        except Status.DoesNotExist:
+            raise StatusDoesNotExistException
+        return status
+
+    def create(self, validated_data):
+        notify = Notify.objects.create(
+            **validated_data, user=self.context['request'].user
+        )
+        return notify
+
+
+class NotifyGetSerializer(NotifySerializer):
+    status = StatusSerializer(read_only=True)
+    user = UserSerializer(read_only=True)
+    task = serializers.CharField(read_only=True, source='task__title')
