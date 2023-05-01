@@ -174,9 +174,25 @@ Notify Entries
 
 Task Monitoring
 
-![Task Monitoring](https://github.com/koksalkapucuoglu/track-and-notify_todo/blob/master/ss/flower.PNG)
+![Task Monitoring](https://github.com/koksalkapucuoglu/track-and-notify_todo/blob/master/ss/flower.png?raw=true)
 
 Email Content
 
-![Task Monitoring](https://github.com/koksalkapucuoglu/track-and-notify_todo/blob/master/ss/email.PNG)
+![Task Monitoring](https://github.com/koksalkapucuoglu/track-and-notify_todo/blob/master/ss/email.png?raw=true)
 
+## Version Backlog
+**v0.4**
+- Added project build documentation
+- 
+**v0.3**
+- Added reminders to users about their tasks via email
+
+**v0.2**
+- Added todo status management
+- Added todo management
+- Added token-based user authentication
+
+**v0.1**
+- Added login and registration, forgot password, change password functionality for users
+- Added basic and jwt token-based user authentication for improved security
+- Added swagger documentation
