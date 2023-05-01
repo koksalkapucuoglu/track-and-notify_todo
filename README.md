@@ -182,17 +182,19 @@ Email Content
 
 ## Version Backlog
 **v0.4**
-- Added project build documentation
-- 
+- Added project build documentation to help developers build the application
+
 **v0.3**
-- Added reminders to users about their tasks via email
+- Added email reminders to notify users about their tasks
+- Added the ability for users to configure the frequency of task reminders
+- Added the email notification design for better readability
 
 **v0.2**
-- Added todo status management
-- Added todo management
-- Added token-based user authentication
+- Added the ability for users to manage the status for their tasks (e.g. completed, pending, etc.)
+- Added a comprehensive todo management system for creating, viewing, updating, and deleting tasks
 
 **v0.1**
-- Added login and registration, forgot password, change password functionality for users
-- Added basic and jwt token-based user authentication for improved security
-- Added swagger documentation
+- Implemented login, registration, forgot password, and change password functionality for users
+- Added basic and JWT token-based user authentication for improved security
+- Added Swagger documentation to help developers understand the API endpoints and how to use them effectively
+- Added dockerization to make easier build the project
